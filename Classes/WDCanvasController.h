@@ -10,6 +10,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WDActionSheet.h"
 
 @class WDCanvas;
 @class WDColorBalanceController;
@@ -37,7 +38,7 @@ enum {
 };
 
 @interface WDCanvasController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate,
-                                                    UIPopoverControllerDelegate, UIDocumentInteractionControllerDelegate>
+                                                    UIPopoverControllerDelegate, UIDocumentInteractionControllerDelegate, WDActionSheetDelegate>
 {
     WDDocument          *document_;
     WDCanvas            *canvas_;
@@ -83,6 +84,7 @@ enum {
 @property (nonatomic, readonly) WDCanvas *canvas;
 @property (nonatomic, readonly, strong) WDDrawingController *drawingController;
 @property (strong, nonatomic) UIDocumentInteractionController *documentInteractionController;
+@property (strong, nonatomic) WDActionSheet *shareSheet;
 
 - (void) updateTitle;
 - (void) hidePopovers;
