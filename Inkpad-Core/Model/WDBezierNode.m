@@ -147,7 +147,7 @@ NSString *WDPointArrayKey = @"WDPointArrayKey";
     CGPoint     a = WDAddPoints(anchorPoint_, WDNormalizePoint(WDSubtractPoints(inPoint_, anchorPoint_)));
     CGPoint     b = WDAddPoints(anchorPoint_, WDNormalizePoint(WDSubtractPoints(outPoint_, anchorPoint_)));
     
-    // then compute the area of the triangle
+    // then compute the doubled area of the triangle
     float triangleArea = fabs(anchorPoint_.x * (a.y - b.y) + a.x * (b.y - anchorPoint_.y) + b.x * (anchorPoint_.y - a.y));
     
     if (triangleArea < 1.0e-3 && !CGPointEqualToPoint(inPoint_, outPoint_)) {
@@ -300,7 +300,7 @@ NSString *WDPointArrayKey = @"WDPointArrayKey";
     
     CGRect anchorRect = CGRectMake(anchor.x - kAnchorRadius, anchor.y - kAnchorRadius, kAnchorRadius * 2, kAnchorRadius * 2);
     
-    // draw the control handles
+    // draw the lines from control handle to anchor point
     if (mode == kWDBezierNodeRenderSelected) {
         [color openGLSet];
         
@@ -330,7 +330,7 @@ NSString *WDPointArrayKey = @"WDPointArrayKey";
         WDGLStrokeRect(anchorRect);
     }
     
-    // draw the control handle knobs
+    // draw the control handle knobs (circles)
     if (mode == kWDBezierNodeRenderSelected) {
         [color openGLSet];
         
