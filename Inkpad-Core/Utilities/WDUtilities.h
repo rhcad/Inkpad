@@ -69,6 +69,7 @@ CGPoint WDConstrainPoint(CGPoint pt);
 
 CGRect WDRectFromPoint(CGPoint a, float width, float height);
 
+// 三点共向，点的顺序无所谓
 BOOL WDCollinear(CGPoint a, CGPoint b, CGPoint c);
 
 BOOL WDLineSegmentsIntersectWithValues(CGPoint A, CGPoint B, CGPoint C, CGPoint D, float *r, float *s);

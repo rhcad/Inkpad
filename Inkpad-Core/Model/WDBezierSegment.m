@@ -13,10 +13,7 @@
 #import "WDBezierNode.h"
 #import "WDUtilities.h"
 
-const float kDefaultFlatness = 6;
-
-static CGPoint      *vertices = NULL;
-static NSUInteger   size = 128;
+const float kDefaultFlatness = 6;           // 缺省平滑度，像素单位
 
 float firstDerivative(float A, float B, float C, float D, float t);
 float secondDerivative(float A, float B, float C, float D, float t);
@@ -239,6 +236,12 @@ BOOL WDLineInRect(CGPoint a, CGPoint b, CGRect test)
 {
     int			acode = 0, bcode = 0;
     float		ymin, ymax, xmin, xmax;
+    enum {
+        TOP = 0x1,
+        BOTTOM = 0x2,
+        RIGHT = 0x4,
+        LEFT = 0x8
+    };
     
     xmin = CGRectGetMinX(test);
     ymin = CGRectGetMinY(test);
@@ -451,6 +454,9 @@ CGPoint WDBezierSegmentPointAndTangentAtDistance(WDBezierSegment seg, float dist
 
 void WDBezierSegmentFlatten(WDBezierSegment seg, CGPoint **vertices, NSUInteger *size, NSUInteger *index)
 {
+    if (!*vertices) {
+        *vertices = calloc(sizeof(CGPoint), *size);
+    }
     if (*size < *index + 4) {
         *size *= 2;
         *vertices = realloc(*vertices, sizeof(CGPoint) * *size);
@@ -476,10 +482,8 @@ void WDBezierSegmentFlatten(WDBezierSegment seg, CGPoint **vertices, NSUInteger 
 CGRect WDBezierSegmentBounds(WDBezierSegment seg)
 {
     NSUInteger  index = 0;
-    
-    if (!vertices) {
-        vertices = calloc(sizeof(CGPoint), size);
-    }
+    static CGPoint      *vertices = NULL;
+    static NSUInteger   size = 128;
     
     WDBezierSegmentFlatten(seg, &vertices, &size, &index);
     

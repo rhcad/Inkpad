@@ -925,6 +925,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		024FB83F198B28D8009DAEFE /* ok */ = {
+			isa = PBXGroup;
+			children = (
+				6BABD90C141ED30100F7E0A9 /* WDPickResult.h */,
+				6BABD90D141ED30100F7E0A9 /* WDPickResult.m */,
+				6BABD8E9141ED30100F7E0A9 /* WDBezierNode.h */,
+				6BABD8EA141ED30100F7E0A9 /* WDBezierNode.m */,
+				6BABD8EB141ED30100F7E0A9 /* WDBezierSegment.h */,
+				6BABD8EC141ED30100F7E0A9 /* WDBezierSegment.m */,
+			);
+			name = ok;
+			sourceTree = "<group>";
+		};
 		02B54D2118D59DFF00DE8A9F /* zh-Hans.lproj */ = {
 			isa = PBXGroup;
 			children = (
@@ -1388,14 +1401,11 @@
 		6BABD8E6141ED30100F7E0A9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				024FB83F198B28D8009DAEFE /* ok */,
 				6BABD8E7141ED30100F7E0A9 /* WDAbstractPath.h */,
 				6BABD8E8141ED30100F7E0A9 /* WDAbstractPath.m */,
 				6B7A8818180CF73000FA241B /* WDArrowhead.h */,
 				6B7A8819180CF73000FA241B /* WDArrowhead.m */,
-				6BABD8E9141ED30100F7E0A9 /* WDBezierNode.h */,
-				6BABD8EA141ED30100F7E0A9 /* WDBezierNode.m */,
-				6BABD8EB141ED30100F7E0A9 /* WDBezierSegment.h */,
-				6BABD8EC141ED30100F7E0A9 /* WDBezierSegment.m */,
 				6BABD8ED141ED30100F7E0A9 /* WDColor.h */,
 				6BABD8EE141ED30100F7E0A9 /* WDColor.m */,
 				6BABD8EF141ED30100F7E0A9 /* WDCompoundPath.h */,
@@ -1429,8 +1439,6 @@
 				6BABD909141ED30100F7E0A9 /* WDPathfinder.h */,
 				6BABD90A141ED30100F7E0A9 /* WDPathfinder.mm */,
 				6BABD90B141ED30100F7E0A9 /* WDPathPainter.h */,
-				6BABD90C141ED30100F7E0A9 /* WDPickResult.h */,
-				6BABD90D141ED30100F7E0A9 /* WDPickResult.m */,
 				6BABD90E141ED30100F7E0A9 /* WDRulerUnit.h */,
 				6BABD90F141ED30100F7E0A9 /* WDRulerUnit.m */,
 				6BABD910141ED30100F7E0A9 /* WDShadow.h */,

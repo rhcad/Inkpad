@@ -1868,10 +1868,6 @@ NSString *WDClosedKey = @"WDClosedKey";
     static NSUInteger   size = 128;
     NSUInteger          index = 0;
     
-    if (!vertices) {
-        vertices = calloc(sizeof(CGPoint), size);
-    }
-    
     for (int i = 0; i < numNodes; i++) {
         WDBezierNode *a = nodes_[i];
         WDBezierNode *b = nodes_[(i+1) % nodes_.count];

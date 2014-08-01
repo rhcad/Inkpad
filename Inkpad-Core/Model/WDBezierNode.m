@@ -173,7 +173,7 @@ NSString *WDPointArrayKey = @"WDPointArrayKey";
         return YES;
     }
     
-    return !WDCollinear(inPoint_, anchorPoint_, outPoint_);
+    return !WDCollinear(inPoint_, anchorPoint_, outPoint_); // 不共线，两控制点重合也算?
 }
 
 - (WDBezierNode *) transform:(CGAffineTransform)transform
