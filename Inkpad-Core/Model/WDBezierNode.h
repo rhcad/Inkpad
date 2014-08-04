@@ -30,6 +30,7 @@ typedef enum {
     kWDBezierNodeRenderSelected
 } WDBezierNodeRenderMode;
 
+// 三次Bezier节点
 @interface WDBezierNode : NSObject <NSCoding, NSCopying> {
     CGPoint     inPoint_;
     CGPoint     anchorPoint_;
@@ -43,8 +44,8 @@ typedef enum {
 
 @property (nonatomic, readonly) WDBezierNodeReflectionMode reflectionMode;  // 手柄对称关系
 
-@property (nonatomic, readonly) BOOL hasInPoint;        // 是否有入向手柄
-@property (nonatomic, readonly) BOOL hasOutPoint;       // 是否有出向手柄
+@property (nonatomic, readonly) BOOL hasInPoint;        // 是否有入向手柄，没有时入向曲线段在终端只有位置约束
+@property (nonatomic, readonly) BOOL hasOutPoint;       // 是否有出向手柄，没有时出向曲线段在起端只有位置约束
 @property (nonatomic, readonly) BOOL isCorner;          // 是否是尖角，即不光滑过渡
 
 // some helper state... not strictly part of the model, but makes many operations simpler

@@ -45,6 +45,7 @@ BOOL WDRenderingMetaDataOutlineOnly(WDRenderingMetaData metaData);
 @protocol WDDocumentProtocol;
 @protocol WDPathPainter;
 
+// 图形文档，容纳所有绘图内容
 @interface WDDrawing : NSObject <NSCoding, NSCopying> {    
     NSMutableDictionary     *imageDatas_;
     NSInteger               suppressNotifications_;

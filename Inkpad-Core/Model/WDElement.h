@@ -43,19 +43,20 @@ typedef enum {
 @class WDShadow;
 @class WDXMLElement;
 
+// 可见的图形元素基类
 @interface WDElement : NSObject <NSCoding, NSCopying> {
     CGRect      dirtyBounds_;
 }
 
-@property (nonatomic, weak) WDLayer *layer;
-@property (nonatomic, weak) WDGroup *group;  // pointer to parent group, if any
-@property (nonatomic, assign) float opacity;
-@property (nonatomic, assign) CGBlendMode blendMode;
-@property (nonatomic, strong) WDShadow *shadow;
-@property (nonatomic, strong) WDShadow *initialShadow;
-@property (weak, nonatomic, readonly) NSUndoManager *undoManager;
-@property (weak, nonatomic, readonly) WDDrawing *drawing;
-@property (weak, nonatomic, readonly) NSSet *inspectableProperties;
+@property (nonatomic, weak) WDLayer *layer;             // 所在的层
+@property (nonatomic, weak) WDGroup *group;             // 所在的组元素，属于某个组时有效
+@property (nonatomic, assign) float opacity;            // 不透明度，0~1，0全透明，1不透明
+@property (nonatomic, assign) CGBlendMode blendMode;    // 颜色混合模式
+@property (nonatomic, strong) WDShadow *shadow;         // 阴影参数，initialShadow非空时shadow为临时阴影
+@property (nonatomic, strong) WDShadow *initialShadow;  // 动态调整前的阴影参数
+@property (weak, nonatomic, readonly) NSUndoManager *undoManager;   // 所在层的绘图Undo管理器
+@property (weak, nonatomic, readonly) WDDrawing *drawing;   // 所在层的图形文档
+@property (weak, nonatomic, readonly) NSSet *inspectableProperties; // 支持的各个属性，见 WDInspectableProperties.h
 
 - (void) awakeFromEncoding;
 

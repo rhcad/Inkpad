@@ -15,6 +15,7 @@
 @class WDColor;
 @class WDXMLElement;
 
+// 阴影参数
 @interface WDShadow : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, readonly) WDColor *color;

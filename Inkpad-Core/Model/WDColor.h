@@ -12,6 +12,7 @@
 #import <UIKit/UIKit.h>
 #import "WDPathPainter.h"
 
+// 类似于 UIColor 的颜色类
 @interface WDColor : NSObject <NSCoding, NSCopying, WDPathPainter>
 
 @property (nonatomic, readonly) CGFloat hue;
@@ -40,7 +41,7 @@
 - (CGColorRef) CGColor;
 - (CGColorRef) opaqueCGColor;
 
-- (void) set;
+- (void) set;       // 将轮廓色和填充色应用到当前绘图上下文(CGContext)中，影响后续GL绘图
 
 - (WDColor *) adjustColor:(WDColor * (^)(WDColor *color))adjustment;
 - (WDColor *) colorBalanceRed:(float)rShift green:(float)gShift blue:(float)bShift;
