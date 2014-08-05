@@ -14,18 +14,19 @@
 
 @class WDPath;
 
+// 复合路径图形类
 @interface WDCompoundPath : WDAbstractPath <NSCoding, NSCopying> {
     CGMutablePathRef    pathRef_;
     CGMutablePathRef    strokePathRef_;
 }
 
-@property (nonatomic, strong) NSMutableArray *subpaths;
+@property (nonatomic, strong) NSMutableArray *subpaths; // 子路径(WDPath)序列
 
-- (void) invalidatePath;
-- (void) addSubpath:(WDPath *)path;
-- (void) removeSubpath:(WDPath *)path;
+- (void) invalidatePath;                                // 清除缓存的路径对象，待重新缓存路径
+- (void) addSubpath:(WDPath *)path;                     // 追加子路径
+- (void) removeSubpath:(WDPath *)path;                  // 移除子路径
 
-- (void) setSubpathsQuiet:(NSMutableArray *)subpaths;
+- (void) setSubpathsQuiet:(NSMutableArray *)subpaths;   // 重新设置子路径序列，不触发通知
 
 @end
 
