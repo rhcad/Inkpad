@@ -58,23 +58,23 @@ typedef enum {
 @property (weak, nonatomic, readonly) WDDrawing *drawing;   // 所在层的图形文档
 @property (weak, nonatomic, readonly) NSSet *inspectableProperties; // 支持的各个属性，见 WDInspectableProperties.h
 
-- (void) awakeFromEncoding;
+- (void) awakeFromEncoding;                             // 解码后确保某些数据已注册到图形文档且不是重复实例
 
-- (CGRect) bounds;
-- (CGRect) styleBounds;
-- (WDShadow *) shadowForStyleBounds;
-- (CGRect) expandStyleBounds:(CGRect)rect;
+- (CGRect) bounds;                                      // 图形几何范围，由子类实现
+- (CGRect) styleBounds;                                 // 根据样式对bounds扩大后的图形范围
+- (WDShadow *) shadowForStyleBounds;                    // 计算 styleBounds 所用的阴影参数，默认为 self.shadow
+- (CGRect) expandStyleBounds:(CGRect)rect;              // 计算根据样式对bounds扩大后的图形范围
 
-- (CGRect) subselectionBounds;
-- (void) clearSubselection;
+- (CGRect) subselectionBounds;                          // 部分选中的子集图形范围
+- (void) clearSubselection;                             // 清除部分选中状态(暂未用)
 
-- (BOOL) containsPoint:(CGPoint)pt;
-- (BOOL) intersectsRect:(CGRect)rect;
+- (BOOL) containsPoint:(CGPoint)pt;                     // 是否包含一个坐标，可用于点选
+- (BOOL) intersectsRect:(CGRect)rect;                   // 是否与一个矩形相交，可用于框选
 
-- (void) renderInContext:(CGContextRef)ctx metaData:(WDRenderingMetaData)metaData;
+- (void) renderInContext:(CGContextRef)ctx metaData:(WDRenderingMetaData)metaData;  // 使用CGContext绘图
 
-- (void) cacheDirtyBounds;
-- (void) postDirtyBoundsChange;
+- (void) cacheDirtyBounds;                              // 标记整个图形范围待重绘
+- (void) postDirtyBoundsChange;                         // 通知画布应用待重绘范围
 
 - (void) tossCachedColorAdjustmentData;
 - (void) restoreCachedColorAdjustmentData;
@@ -89,38 +89,42 @@ typedef enum {
 - (void) drawGradientControlsWithViewTransform:(CGAffineTransform)transform;
 - (void) drawTextPathControlsWithViewTransform:(CGAffineTransform)viewTransform viewScale:(float)viewScale;
 
+// 几何变形，返回已选中节点(WDBezierNode)的变形结果
 - (NSSet *) transform:(CGAffineTransform)transform;
 - (void) adjustColor:(WDColor * (^)(WDColor *color))adjustment scope:(WDColorAdjustmentScope)scope;
 
+// 对齐到矩形的某条参考线，返回已选中节点(WDBezierNode)的变形结果
 - (NSSet *) alignToRect:(CGRect)rect alignment:(WDAlignment)align;
 
+// 点中测试
 - (WDPickResult *) hitResultForPoint:(CGPoint)pt viewScale:(float)viewScale snapFlags:(int)flags;
+// 坐标捕捉
 - (WDPickResult *) snappedPoint:(CGPoint)pt viewScale:(float)viewScale snapFlags:(int)flags;
 
-- (void) addBlendablesToArray:(NSMutableArray *)array;
-- (void) addElementsToArray:(NSMutableArray *)array;
+- (void) addBlendablesToArray:(NSMutableArray *)array;  // 收集可混合颜色的填充属性对象(WDPathPainter)
+- (void) addElementsToArray:(NSMutableArray *)array;    // 收集所有图形元素(WDElement)
 
-- (WDXMLElement *) SVGElement;
-- (void) addSVGOpacityAndShadowAttributes:(WDXMLElement *)element;
+- (WDXMLElement *) SVGElement;                          // 导出SVG元素
+- (void) addSVGOpacityAndShadowAttributes:(WDXMLElement *)element;  // 向SVG元素添加不透明度和阴影属性
 
-- (BOOL) canMaskElements;
-- (BOOL) hasEditableText;
-- (BOOL) canPlaceText;
-- (BOOL) isErasable;
-- (BOOL) canAdjustColor;
+- (BOOL) canMaskElements;                               // 是否可用作掩码图形
+- (BOOL) hasEditableText;                               // 是否有可编辑文本
+- (BOOL) canPlaceText;                                  // 是否可粘帖入文本
+- (BOOL) isErasable;                                    // 是否可擦除
+- (BOOL) canAdjustColor;                                // 是否可调整颜色
 
 // inspection
 - (void) setValue:(id)value forProperty:(NSString *)property propertyManager:(WDPropertyManager *)propertyManager;
-- (id) valueForProperty:(NSString *)property;
-- (NSSet *) inspectableProperties;
-- (BOOL) canInspectProperty:(NSString *)property;
-- (void) propertyChanged:(NSString *)property;
-- (void) propertiesChanged:(NSSet *)property;
-- (id) pathPainterAtPoint:(CGPoint)pt;
-- (BOOL) hasFill;
+- (id) valueForProperty:(NSString *)property;           // 返回属性值
+- (NSSet *) inspectableProperties;                      // 能从本图形吸取的属性集
+- (BOOL) canInspectProperty:(NSString *)property;       // 能否从本图形吸取指定的属性值
+- (void) propertyChanged:(NSString *)property;          // 通知画布本图形的某个属性已改变
+- (void) propertiesChanged:(NSSet *)property;           // 通知画布本图形的某些属性已改变
+- (id) pathPainterAtPoint:(CGPoint)pt;                  // 在指定点的颜色(WDColor)，用于吸管
+- (BOOL) hasFill;                                       // 是否有填充对象
 
-- (BOOL) needsToSaveGState:(float)scale;
-- (BOOL) needsTransparencyLayer:(float)scale;
+- (BOOL) needsToSaveGState:(float)scale;                // 是否需要调用 CGContextSaveGState
+- (BOOL) needsTransparencyLayer:(float)scale;           // 是否需要调用 CGContextBeginTransparencyLayer
 
 - (void) beginTransparencyLayer:(CGContextRef)ctx metaData:(WDRenderingMetaData)metaData;
 - (void) endTransparencyLayer:(CGContextRef)ctx metaData:(WDRenderingMetaData)metaData;

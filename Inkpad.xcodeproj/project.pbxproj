@@ -1425,8 +1425,6 @@
 				6BABD8FA141ED30100F7E0A9 /* WDGradient.m */,
 				6BABD8FB141ED30100F7E0A9 /* WDGradientStop.h */,
 				6BABD8FC141ED30100F7E0A9 /* WDGradientStop.m */,
-				6BABD8FD141ED30100F7E0A9 /* WDGroup.h */,
-				6BABD8FE141ED30100F7E0A9 /* WDGroup.m */,
 				6BABD8FF141ED30100F7E0A9 /* WDImage.h */,
 				6BABD900141ED30100F7E0A9 /* WDImage.m */,
 				6BABD901141ED30100F7E0A9 /* WDImageData.h */,
@@ -1806,6 +1804,8 @@
 			children = (
 				6BABD8F5141ED30100F7E0A9 /* WDElement.h */,
 				6BABD8F6141ED30100F7E0A9 /* WDElement.m */,
+				6BABD8FD141ED30100F7E0A9 /* WDGroup.h */,
+				6BABD8FE141ED30100F7E0A9 /* WDGroup.m */,
 			);
 			name = Element;
 			sourceTree = "<group>";

@@ -12,9 +12,10 @@
 #import <Foundation/Foundation.h>
 #import "WDElement.h"
 
+// 成组图形元素
 @interface WDGroup : WDElement <NSCoding, NSCopying>
 
-@property (nonatomic, strong) NSMutableArray *elements;
+@property (nonatomic, strong) NSMutableArray *elements; // 子图形(WDElement)
 
 @end
 
