@@ -10,7 +10,6 @@
 //
 
 #import <CoreText/CoreText.h>
-#import "WDCanvasController.h"
 #import "WDDrawingController.h"
 #import "WDCoreTextLabel.h"
 #import "WDFontController.h"

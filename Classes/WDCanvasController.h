@@ -9,7 +9,7 @@
 //  Copyright (c) 2011-2013 Steve Sprang
 //
 
-#import <UIKit/UIKit.h>
+#import "WDCanvasControllerI.h"
 #import "WDActionSheet.h"
 
 @class WDCanvas;
@@ -21,13 +21,10 @@
 @class WDFillController;
 @class WDHueSaturationController;
 @class WDLayerController;
-@class WDMenu;
-@class WDMenuItem;
 @class WDStrokeController;
 @class WDSwatchController;
 @class WDShadowController;
 @class WDShadowWell;
-@class WDText;
 
 enum {
     kAddToPhotos = 0,
@@ -38,7 +35,7 @@ enum {
 };
 
 @interface WDCanvasController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate,
-                                                    UIPopoverControllerDelegate, UIDocumentInteractionControllerDelegate, WDActionSheetDelegate>
+                                                    UIPopoverControllerDelegate, UIDocumentInteractionControllerDelegate, WDActionSheetDelegate, WDCanvasControllerI>
 {
     WDDocument          *document_;
     WDCanvas            *canvas_;
@@ -82,22 +79,8 @@ enum {
 @property (nonatomic, strong) WDDocument *document;
 @property (weak, nonatomic, readonly) WDDrawing *drawing;
 @property (nonatomic, readonly) WDCanvas *canvas;
-@property (nonatomic, readonly, strong) WDDrawingController *drawingController;
 @property (strong, nonatomic) UIDocumentInteractionController *documentInteractionController;
 @property (strong, nonatomic) WDActionSheet *shareSheet;
-
-- (void) updateTitle;
-- (void) hidePopovers;
-
-- (BOOL) shouldDismissPopoverForClassController:(Class)controllerClass insideNavController:(BOOL)insideNav;
-- (UIPopoverController *) runPopoverWithController:(UIViewController *)controller from:(id)sender;
-
-- (void) validateMenuItem:(WDMenuItem *)item;
-- (void) validateVisibleMenuItems;
-- (void) validateColorMenu;
-
-- (void) editTextObject:(WDText *)text selectAll:(BOOL)selectAll;
-- (void) undoStatusDidChange:(NSNotification *)aNotification;
 
 @end
 

@@ -11,7 +11,6 @@
 
 #import "WDTextController.h"
 #import "WDText.h"
-#import "WDCanvasController.h"
 
 #define kEditingTextSize    24
 

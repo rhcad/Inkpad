@@ -9,11 +9,10 @@
 //  Copyright (c) 2009-2013 Steve Sprang
 //
 
-#import <UIKit/UIKit.h>
+#import "WDCanvasControllerI.h"
 #import <QuartzCore/QuartzCore.h>
 
 @class WDCanvas;
-@class WDCanvasController;
 @class WDDrawing;
 @class WDDrawingController;
 @class WDEraserPreviewView;
@@ -82,7 +81,7 @@
 @property (nonatomic, strong) NSValue *marquee;
 @property (nonatomic, strong) WDPath *shapeUnderConstruction;
 @property (nonatomic, strong) WDPath *eraserPath;
-@property (nonatomic, weak) WDCanvasController *controller;
+@property (nonatomic, weak) id<WDCanvasControllerI> controller;
 @property (weak, nonatomic, readonly) WDDrawingController *drawingController;
 @property (nonatomic, strong, readonly) WDPalette *toolPalette;
 @property (nonatomic, readonly) WDEyedropper *eyedropper;

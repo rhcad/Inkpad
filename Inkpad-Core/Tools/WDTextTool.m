@@ -11,7 +11,6 @@
 
 
 #import "WDCanvas.h"
-#import "WDCanvasController.h"
 #import "WDColor.h"
 #import "WDDrawingController.h"
 #import "WDPath.h"

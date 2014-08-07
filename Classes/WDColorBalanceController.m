@@ -10,7 +10,6 @@
 //
 
 #import "WDCanvas.h"
-#import "WDCanvasController.h"
 #import "WDColor.h"
 #import "WDColorBalanceController.h"
 #import "WDColorSlider.h"

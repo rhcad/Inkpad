@@ -363,6 +363,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0212DF4819931B99007B3EC3 /* WDCanvasControllerI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WDCanvasControllerI.h; sourceTree = "<group>"; };
 		02B54D2318D59DFF00DE8A9F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = ColorBalance.strings; sourceTree = "<group>"; };
 		02B54D2518D59DFF00DE8A9F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = HueSaturation.strings; sourceTree = "<group>"; };
 		02B54D2718D59DFF00DE8A9F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = Localizable.strings; sourceTree = "<group>"; };
@@ -1619,6 +1620,7 @@
 				5D62B27413CE866500E4D41B /* WDBlendModeController.m */,
 				6BCD52D812400017002FCB27 /* WDBrowserController.h */,
 				6BCD52D912400017002FCB27 /* WDBrowserController.m */,
+				0212DF4819931B99007B3EC3 /* WDCanvasControllerI.h */,
 				6BCD52DC12400017002FCB27 /* WDCanvasController.h */,
 				6BCD52DD12400017002FCB27 /* WDCanvasController.m */,
 				6B308FB513B56A8A000665C3 /* WDColorAdjustmentController.h */,

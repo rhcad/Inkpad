@@ -11,7 +11,6 @@
 
 #import "UIView+Additions.h"
 #import "WDCanvas.h"
-#import "WDCanvasController.h"
 #import "WDDrawingController.h"
 #import "WDColor.h"
 #import "WDEraserPreviewView.h"

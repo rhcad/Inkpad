@@ -11,7 +11,6 @@
 
 #import "WDBezierNode.h"
 #import "WDCanvas.h"
-#import "WDCanvasController.h"
 #import "WDCompoundPath.h"
 #import "WDDynamicGuide.h"
 #import "WDDynamicGuideController.h"
