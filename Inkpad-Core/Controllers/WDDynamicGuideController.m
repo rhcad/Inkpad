@@ -14,6 +14,7 @@
 #import "WDDynamicGuide.h"
 #import "WDDynamicGuideController.h"
 #import "WDUtilities.h"
+#import "WDDrawing.h"
 
 const float kDynamicGuideSnappingTolerance = 10.0f;
 

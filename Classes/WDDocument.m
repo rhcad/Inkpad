@@ -13,6 +13,7 @@
 #import "WDDocument.h"
 #import "WDSVGParser.h"
 #import "WDSVGThumbnailExtractor.h"
+#import "WDDrawing.h"
 
 NSString *WDDocumentDidLoadNotification = @"WDDocumentDidLoadNotification";
 static NSString *errorDomain = @"WDDocument";

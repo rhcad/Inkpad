@@ -22,6 +22,21 @@ typedef enum {
     kStrokeAllAttributes   = 0xffff
 } WDStrokeAttributes;
 
+enum {
+    WDRenderDefault      = 0x0,
+    WDRenderOutlineOnly  = 0x1,
+    WDRenderThumbnail    = 0x1 << 1,
+    WDRenderFlipped      = 0x1 << 2
+};
+
+typedef struct {
+    float   scale;
+    UInt32  flags;
+} WDRenderingMetaData;
+
+WDRenderingMetaData WDRenderingMetaDataMake(float scale, UInt32 flags);
+BOOL WDRenderingMetaDataOutlineOnly(WDRenderingMetaData metaData);
+
 @interface WDStrokeStyle : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, readonly) float width;

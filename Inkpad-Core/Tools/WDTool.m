@@ -14,6 +14,7 @@
 #import "WDPickResult.h"
 #import "WDTool.h"
 #import "UIView+Additions.h"
+#import "WDDrawing.h"
 
 #define kOptionsViewCornerRadius    9
 

@@ -9,9 +9,8 @@
 //  Copyright (c) 2009-2013 Steve Sprang
 //
 
-#import <Foundation/Foundation.h>
-#import "WDDrawing.h"
 #import "WDXMLElement.h"
+#import "WDStrokeStyle.h"
 
 #if TARGET_OS_IPHONE
 #import <OpenGLES/EAGL.h>
@@ -42,6 +41,7 @@ typedef enum {
 @class WDPropertyManager;
 @class WDShadow;
 @class WDXMLElement;
+@class WDDrawing;
 
 @interface WDElement : NSObject <NSCoding, NSCopying> {
     CGRect      dirtyBounds_;

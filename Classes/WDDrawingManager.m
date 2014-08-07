@@ -14,6 +14,7 @@
 #import "WDDrawingManager.h"
 #import "WDSVGParser.h"
 #import "WDSVGThumbnailExtractor.h"
+#import "WDDrawing.h"
 
 NSString *WDDrawingFileExtension = @"inkpad";
 NSString *WDSVGFileExtension = @"svg";

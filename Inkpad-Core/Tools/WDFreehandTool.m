@@ -19,6 +19,7 @@
 #import "WDPath.h"
 #import "WDPropertyManager.h"
 #import "WDUtilities.h"
+#import "WDDrawing.h"
 
 #define kMaxError 10.0f
 

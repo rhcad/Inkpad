@@ -20,6 +20,7 @@
 #import "WDSelectionTool.h"
 #import "WDTextPath.h"
 #import "WDUtilities.h"
+#import "WDDrawing.h"
 
 @implementation WDSelectionTool
 

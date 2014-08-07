@@ -19,6 +19,7 @@
 #import "WDPenTool.h"
 #import "WDPropertyManager.h"
 #import "WDUtilities.h"
+#import "WDDrawing.h"
 
 @implementation WDPenTool
 

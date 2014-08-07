@@ -17,6 +17,7 @@
 #import "WDModalTitleBar.h"
 #import "WDPaletteBackgroundView.h"
 #import "UIView+Additions.h"
+#import "WDDrawing.h"
 
 #define kCornerRadius       7
 #define kVelocityDampening  0.85f

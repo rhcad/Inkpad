@@ -19,6 +19,7 @@
 #import "WDPropertyManager.h"
 #import "WDShapeTool.h"
 #import "WDUtilities.h"
+#import "WDDrawing.h"
 
 NSString *WDShapeToolStarInnerRadiusRatio = @"WDShapeToolStarInnerRadiusRatio";
 NSString *WDShapeToolStarPointCount = @"WDShapeToolStarPointCount";
