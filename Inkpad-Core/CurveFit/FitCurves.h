@@ -11,4 +11,5 @@
 
 #import "WDBezierSegment.h"
 
+// 根据给定的点(digitizedPts[nPts])得到光顺曲线 segments[result], segments 预分配大小为 nPts
 int FitCurve(WDBezierSegment *segments, CGPoint *digitizedPts, int nPts, double error);

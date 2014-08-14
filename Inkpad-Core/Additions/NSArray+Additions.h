@@ -13,7 +13,10 @@
 
 @interface NSArray (WDAdditions)
 
+// 返回对每个元素进行映射转换后的新数组
 - (NSArray *) map:(id (^)(id obj))fn;
+
+// 返回符合条件的元素所组成的子数组
 - (NSArray *) filter:(BOOL (^)(id obj))predicate;
 
 @end

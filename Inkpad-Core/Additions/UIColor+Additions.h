@@ -13,9 +13,13 @@
 
 @interface UIColor (WDAdditions)
 
+// 返回随机颜色. includeAlpha为真时取0.5到1.0之间的透明度，否则透明度为1
 + (UIColor *) randomColor:(BOOL)includeAlpha;
+
+// 返回随机色相值的HSB颜色，饱和度和亮度为固定值
 + (UIColor *) saturatedRandomColor;
 
+// 应用颜色到OpenGL上下文中
 - (void) openGLSet;
 
 @end
